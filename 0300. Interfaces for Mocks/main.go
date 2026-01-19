@@ -52,6 +52,15 @@ func (s *FakeStore) FindByLogin(login string) (User, error){
 func main() {
 	fmt.Print("\033[H\033[2J")
 
+	store := NewFakeStore()
+	store.AddUser(User{
+		Login: "admin",
+		Password: "123",
+	})
+
+	fmt.Println(login(store, "admin", "123"))
+	fmt.Println(login(store, "admin", "11223"))
+	
 
 
 }
